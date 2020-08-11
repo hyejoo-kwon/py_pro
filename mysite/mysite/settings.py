@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-from django.contrib.auth import get_user_model
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'django_extensions',
+    'drinks.apps.DrinksConfig',
+    'posts.apps.PostsConfig',
+    'comments.apps.CommentsConfig',
+    'carts.apps.CartsConfig',
+    'payments.apps.PaymentsConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 
@@ -122,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = "static/"
 
 # Additional_settings
 
