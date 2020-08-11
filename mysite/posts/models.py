@@ -7,5 +7,5 @@ class Post(models.Model):
     likes=models.IntegerField(default=0)
     drink_id = models.ForeignKey(to=Drinks,on_delete=models.CASCADE,related_name="fk_post")
     account = models.ForeignKey(
-        get_user_model(), on_delete=models.DO_NOTHING, related_name="fk_post"
+        to=get_user_model(), on_delete=models.DO_NOTHING, related_name="fk_post"
     )

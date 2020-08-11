@@ -10,8 +10,8 @@ def get_image_filename(instance, filename):
 
 class Drinks(models.Model):
     name = models.CharField(max_length=45)
-    price = models.CharField(max_length=45)
-    desc = models.TextField()
+    price = models.PositiveIntegerField(default=None)
+    desc = models.TextField(max_length=1024, null=True, blank=True)
     food_images = models.ImageField(upload_to=get_image_filename,
                                     verbose_name='Image')
-    likes=models.IntegerField(default=0)
+    likes = models.PositiveIntegerField()
