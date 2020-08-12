@@ -14,9 +14,11 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError(_('The Email must be set'))
         email = self.normalize_email(email)
-        user = self.model(email=email, cart=Cart.objects.create(),**extra_fields)
+        user = self.model(email=email,**extra_fields)
         user.set_password(password)
         user.save()
+        cart = Cart.objects.create(user=user)
+        cart.save()
         return user
 
     def create_superuser(self, email, password, **extra_fields):
@@ -37,7 +39,6 @@ class CustomUserManager(BaseUserManager):
 class Account(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True, default=None)
-    cart_id= models.OneToOneField(to=Cart, on_delete=models.DO_NOTHING, null=True, default=None)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
