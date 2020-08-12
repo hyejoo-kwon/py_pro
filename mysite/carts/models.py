@@ -1,12 +1,8 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.conf import settings
 
 # Create your models here.
 
 class Cart(models.Model):
     total_price = models.PositiveIntegerField(default=None, null=True)
-    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
-
-
-
-                                                                                                                                                                                                                                    
+    user = models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="cart")
