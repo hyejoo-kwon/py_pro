@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 
 class Cart(models.Model):
     total_price = models.PositiveIntegerField(default=None, null=True)
-    user = models.OneToOneField(to=get_user_model(), on_delete=models.CASCADE, null=False)
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 
 
 

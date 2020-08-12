@@ -9,3 +9,5 @@ class Post(models.Model):
     account = models.ForeignKey(
         to=get_user_model(), on_delete=models.DO_NOTHING, related_name="fk_post"
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True) 

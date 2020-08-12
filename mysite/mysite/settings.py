@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,8 +44,9 @@ INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
     'carts.apps.CartsConfig',
     'payments.apps.PaymentsConfig',
-    'accounts.apps.AccountsConfig',
 ]
+
+AUTH_USER_MODEL = "accounts.Account"
 
 
 MIDDLEWARE = [
@@ -139,5 +141,3 @@ GRAPH_MODELS = {
 INTERNAL_IPS = [
         "127.0.0.1",
         ]
-
-AUTH_USER_MODEL = "accounts.Account"
