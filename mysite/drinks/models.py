@@ -17,7 +17,7 @@ class Drinks(models.Model):
     name = models.CharField(max_length=45, null=False, blank=False)
     price = models.PositiveIntegerField(default=None, null=True)
     desc = models.TextField(max_length=1024, null=True, blank=True)
-    brand = models.ForeignKey(to=Brand, on_delete=models.DO_NOTHING, null=True, default=Brand.objects.first())
+    brand = models.ForeignKey(to=Brand, on_delete=models.DO_NOTHING, null=True, default=None)
     image = models.ImageField(upload_to=get_brand_name, null=True)
     food_images = models.ImageField(upload_to=get_image_filename,
                                     verbose_name='Image')

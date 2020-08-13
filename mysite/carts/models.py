@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from drinks.models import Drinks
+from payments.models import Payment
 
 class Cart(models.Model):
     total_price = models.PositiveIntegerField(default=None, null=True)
@@ -11,3 +12,4 @@ class CartItem(models.Model):
     quantity = models.PositiveIntegerField(default=None, null=True)
     cart = models.ForeignKey(to=Cart, on_delete=models.DO_NOTHING)
     price = models.PositiveIntegerField(default=0, null=True)
+    payment = models.ForeignKey(to=Payment, on_delete=models.CASCADE, related_name="items", default=None, null=True)
