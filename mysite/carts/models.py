@@ -1,8 +1,13 @@
 from django.db import models
 from django.conf import settings
-
-# Create your models here.
+from drinks.models import Drinks
 
 class Cart(models.Model):
     total_price = models.PositiveIntegerField(default=None, null=True)
     user = models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="cart")
+
+class CartItem(models.Model):
+    drink = models.ForeignKey(to=Drinks, on_delete=models.CASCADE, related_name="payments")
+    quantity = models.PositiveIntegerField(default=None, null=True)
+    cart = models.ForeignKey(to=Cart, on_delete=models.DO_NOTHING)
+    price = models.PositiveIntegerField(default=0, null=True)

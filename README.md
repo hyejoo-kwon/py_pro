@@ -27,6 +27,16 @@
             - ack: keyword_seach_filter, [brand, product_name]
             - user_todo
                 - find exact he likes to drink or for present to other,
-                - 
-            
+
+- ## TODO
+    - Cart > CartItem 으로 재설정함
+        - payment가 Cart를 가질 필요는 없지만, CartItem을 유지해줘야함.
+    
+    -
+
+- ## model_tips:
+    - Cartitem은 장바구니에 있는 동안은, 원 가격을 바라봐야하고  
+    결제로 넘어가고 나면 정수로 유지되는데, 만약 결재 전에 수정을 하는 사항이 발생한다면?
+    - CartItem은 drink를 바라보기때문에 price필드는 마지막에 drink의 가격을 반영한 상태로 정수로 저장
+    -  
 

@@ -1,20 +1,11 @@
 from django.db import models
-
-# models
+from django.conf import settings
 from carts.models import Cart
-from drinks.models import Drinks
 
-
+# use payment as 찜목록
 class Payment(models.Model):
     is_paid = models.BooleanField(default=False, null=False)
-    cart = models.ForeignKey(to=Cart, on_delete=models.CASCADE, related_name="payments")
+    #account = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, related_name='payments', default=)
     total_price = models.PositiveIntegerField(default=None, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(verbose_name="paid date",null=True,default=None) 
-
-
-class PaymentRow(models.Model):
-    drink = models.ForeignKey(to=Drinks, on_delete=models.CASCADE, related_name="payments")
-    quantity = models.PositiveIntegerField(default=None, null=True)
-    payment = models.ForeignKey(to=Payment, on_delete=models.CASCADE, related_name='items')
-
+    updated_at = models.DateTimeField(verbose_name="paid date",null=True,default=None)
