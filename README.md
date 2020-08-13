@@ -31,8 +31,7 @@
 - ## TODO
     - Cart > CartItem 으로 재설정함
         - payment가 Cart를 가질 필요는 없지만, CartItem을 유지해줘야함.
-    
-    -
+    - 기본 만들기
 
 - ## model_tips:
     - Cartitem은 장바구니에 있는 동안은, 원 가격을 바라봐야하고  
